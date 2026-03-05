@@ -1,0 +1,49 @@
+.container {
+  margin: 30px auto;
+  max-width: 500px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.fileInput {
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+.filename {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.uploadBtn {
+  background: #2d6cdf;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.uploadBtn:hover {
+  background: #1e55b8;
+}
+
+.uploadBtn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}

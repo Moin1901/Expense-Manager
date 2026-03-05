@@ -1,0 +1,61 @@
+date,amount,vendor,description
+2026-03-01,170,Uber,Ride
+2026-03-02,426,Zomato,Meal order
+2026-03-03,554,Amazon,Online purchase
+2026-03-04,179,Uber,Ride
+2026-03-05,157,Zomato,Meal order
+2026-03-06,427,Zomato,Meal order
+2026-03-07,152,Zomato,Meal order
+2026-03-08,218,Uber,Ride
+2026-03-09,263,Swiggy,Food order
+2026-03-10,271,Zomato,Meal order
+2026-03-11,373,Swiggy,Food order
+2026-03-12,233,Uber,Ride
+2026-03-13,121,Uber,Ride
+2026-03-14,204,Zomato,Meal order
+2026-03-15,210,Uber,Ride
+2026-03-16,198,Swiggy,Food order
+2026-03-17,169,Uber,Ride
+2026-03-18,195,Uber,Ride
+2026-03-19,181,Swiggy,Food order
+2026-03-20,154,Zomato,Meal order
+2026-03-01,277,Swiggy,Food order
+2026-03-02,224,Swiggy,Food order
+2026-03-03,312,Swiggy,Food order
+2026-03-04,373,Swiggy,Food order
+2026-03-05,180,Zomato,Meal order
+2026-03-06,255,Zomato,Meal order
+2026-03-07,210,Uber,Ride
+2026-03-08,149,Uber,Ride
+2026-03-09,1481,Amazon,Online purchase
+2026-03-10,424,Zomato,Meal order
+2026-03-11,329,Zomato,Meal order
+2026-03-12,473,Amazon,Online purchase
+2026-03-13,892,Amazon,Online purchase
+2026-03-14,359,Swiggy,Food order
+2026-03-15,95,Uber,Ride
+2026-03-16,222,Swiggy,Food order
+2026-03-17,159,Uber,Ride
+2026-03-18,315,Zomato,Meal order
+2026-03-19,203,Swiggy,Food order
+2026-03-20,710,Amazon,Online purchase
+2026-03-01,659,Amazon,Online purchase
+2026-03-02,112,Uber,Ride
+2026-03-03,420,Zomato,Meal order
+2026-03-04,1189,Amazon,Online purchase
+2026-03-05,480,Amazon,Online purchase
+2026-03-06,954,Amazon,Online purchase
+2026-03-07,197,Uber,Ride
+2026-03-08,188,Uber,Ride
+2026-03-09,204,Zomato,Meal order
+2026-03-10,230,Uber,Ride
+2026-03-11,167,Swiggy,Food order
+2026-03-12,428,Zomato,Meal order
+2026-03-13,1309,Amazon,Online purchase
+2026-03-14,371,Swiggy,Food order
+2026-03-15,858,Amazon,Online purchase
+2026-03-16,213,Uber,Ride
+2026-03-17,241,Uber,Ride
+2026-03-18,1437,Amazon,Online purchase
+2026-03-19,374,Zomato,Meal order
+2026-03-20,168,Swiggy,Food order

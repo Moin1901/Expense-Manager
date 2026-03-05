@@ -1,0 +1,103 @@
+:root {
+  font-family: "Segoe UI", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #222;
+  background-color: #f4f6fb;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f6fb;
+  color: #222;
+}
+
+/* Links */
+
+a {
+  font-weight: 500;
+  color: #2d6cdf;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1e55b8;
+}
+
+/* Headings */
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+/* Buttons */
+
+button {
+  border-radius: 6px;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2d6cdf;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #1e55b8;
+}
+
+/* Inputs */
+
+input {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+/* Smooth UI */
+
+button,
+input {
+  transition: all 0.2s ease;
+}
