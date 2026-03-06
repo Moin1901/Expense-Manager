@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { uploadCSV } from "../../../../services/api";
+import { uploadCSV } from "../../../../services";
 import styles from "./uploadcsv.module.css";
 
 export default function UploadCSV() {

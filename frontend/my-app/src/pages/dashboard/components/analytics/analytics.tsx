@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import {
   getMonthlySummary,
   getTopVendors,
   getAnomalies,
-} from "../../../../services/api";
+} from "../../../../services";
+import type { MonthlySummary, TopVendor, Anomaly } from "../../../../models";
 import styles from "./analytics.module.css";
+import { STATS_CONFIG } from "../../../../constants/uiConsts";
+import CustomStatsCard from "../../../../common/custom-stats-card";
 
 export default function Analytics() {
-  const [summary, setSummary] = useState<any[]>([]);
-  const [vendors, setVendors] = useState<any[]>([]);
-  const [anomalies, setAnomalies] = useState<any[]>([]);
+  const [summary, setSummary] = useState<MonthlySummary[]>([]);
+  const [vendors, setVendors] = useState<TopVendor[]>([]);
+  const [anomalies, setAnomalies] = useState<Anomaly[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -46,20 +45,28 @@ export default function Analytics() {
     }
 
     setLoading(false);
-  };
+  }, []);
 
-  const totalExpense = summary.reduce(
-    (acc, item) => acc + Number(item.sum || 0),
-    0,
+  useEffect(() => {
+    void fetchData();
+  }, [fetchData]);
+
+  const totalExpense = useMemo(
+    () => summary.reduce((acc, item) => acc + Number(item.sum || 0), 0),
+    [summary],
   );
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const statItems = useMemo(() => {
+    return STATS_CONFIG.map((c:any) => {
+      if (c.key === "totalExpenses")
+        return { ...c, value: `₹ ${totalExpense}` };
+      if (c.key === "topVendors") return { ...c, value: vendors.length };
+      if (c.key === "anomalies") return { ...c, value: anomalies.length };
+      return { ...c, value: "-" };
+    });
+  }, [totalExpense, vendors.length, anomalies.length]);
 
-  if (error) {
-    return <p className={styles.error}>{error}</p>;
-  }
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className={styles.dashboard}>
@@ -67,20 +74,9 @@ export default function Analytics() {
 
       {/* Stats Cards */}
       <div className={styles.statsGrid}>
-        <div className={styles.statCard}>
-          <h3>Total Expenses</h3>
-          <p>₹ {totalExpense}</p>
-        </div>
-
-        <div className={styles.statCard}>
-          <h3>Top Vendors</h3>
-          <p>{vendors.length}</p>
-        </div>
-
-        <div className={styles.statCard}>
-          <h3>Anomalies</h3>
-          <p>{anomalies.length}</p>
-        </div>
+        {statItems.map((s) => (
+          <CustomStatsCard key={s.key} title={s.label} value={s.value} />
+        ))}
       </div>
 
       <div className={styles.grid}>

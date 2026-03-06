@@ -3,7 +3,7 @@ import pool from "../db/db.ts";
 export const checkAnomaly = async (category: string, amount: number) => {
   const result = await pool.query(
     "SELECT AVG(amount) as avg FROM expenses WHERE category=$1",
-    [category]
+    [category],
   );
 
   const avg = result.rows[0].avg || 0;

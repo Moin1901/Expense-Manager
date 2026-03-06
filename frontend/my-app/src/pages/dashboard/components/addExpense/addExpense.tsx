@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { addExpense } from "../../../../services/api";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { addExpense } from "../../../../services";
+import type { ExpenseInput, FormState } from "../../../../models";
 import styles from "./addexpense.module.css";
 
 export default function AddExpense() {
-  const [form, setForm] = useState({
+  
+
+  const [form, setForm] = useState<FormState>({
     date: "",
     amount: "",
     vendor: "",
@@ -13,20 +16,25 @@ export default function AddExpense() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submitExpense = async (e: any) => {
+  const submitExpense = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
       setLoading(true);
       setError(null);
-      await addExpense({
-        ...form,
-        amount: Number(form.amount), // Convert amount to number
-      });
+      const payload: ExpenseInput = {
+        date: form.date,
+        amount: Number(form.amount || 0),
+        vendor: form.vendor,
+        description: form.description ?? "",
+      };
+
+      await addExpense(payload);
 
       alert("Expense Added Successfully");
 

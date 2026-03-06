@@ -1,4 +1,3 @@
-import express from "express";
 import type { Request, Response } from "express";
 import { getCategory } from "../utils/categorizer.ts";
 import { checkAnomaly } from "../utils/anomaly.ts";
@@ -29,7 +28,6 @@ export const addExpense = async (req: Request, res: Response) => {
 };
 
 export const getMonthlySummary = async (req: Request, res: Response) => {
-  console.log("Fetching monthly summary...................................................................");
   try {
     const result = await pool.query(
       `SELECT category, SUM(amount) as sum FROM expenses GROUP BY category`
